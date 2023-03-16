@@ -69,7 +69,7 @@ def predict_gender_and_age(video_frame, boxes, mean, all_genders, all_ages_class
         cv2.putText(video_frame, label, (box[0], box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2,
                     cv2.LINE_AA)
 
-        #return cv_net_age.forward()[0][predicted_age_class] * 100, label
+        return cv_net_age.forward()[0][predicted_age_class] * 100, label
 
 
 face_proto = "assets/opencv_face_detector.pbtxt"  # configuration of the dnn for face detection
