@@ -10,7 +10,7 @@ def detect_and_display(edited_frame, face_only=True):
     frame_gray = cv.cvtColor(edited_frame, cv.COLOR_BGR2GRAY)
 
     # -- Detect faces
-    faces = face_cascade.detectMultiScale(frame_gray)
+    faces, r, w = face_cascade.detectMultiScale3(frame_gray,  outputRejectLevels=True)
     all_rois = []
 
     # This for statement extracts the 4 vertices of the rectangle area that contains the face.
@@ -81,7 +81,7 @@ if __name__ == "__main__":
             print('--(!) No captured frame -- Break!')
             break
 
-        print(detect_and_display(frame, face_only=True))
+        detect_and_display(frame, face_only=True)
 
         if cv.waitKey(10) == 27:  # the esc key
             break

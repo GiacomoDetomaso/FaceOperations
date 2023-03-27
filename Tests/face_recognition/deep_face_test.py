@@ -17,9 +17,8 @@ detectors_backends = [
 ]
 
 # face detection and alignment
-face_objs = df.extract_faces(img_path="assets/trump.jpg", target_size=(224, 224), detector_backend=detectors_backends[5], enforce_detection=False)
+img = cv2.imread("assets/trump.jpg")
+face_objs = df.extract_faces(img, target_size=(224, 224), detector_backend=detectors_backends[5], enforce_detection=False)
 print(face_objs)
 plt.imshow(face_objs[0]['face'])
 plt.show()
-
-#print(pandas.DataFrame(df.analyze(img_path="assets/biden.jpg", detector_backend=detectors_backends[4])).to_string())
